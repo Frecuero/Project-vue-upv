@@ -1,0 +1,6 @@
+El examen va hacer de TS y Vue.js 
+- bases de TS y Vue.
+- Preguntas largas y preguntas cortas.
+
+El formato para los commmit es
+fdrecnar:mensaje 

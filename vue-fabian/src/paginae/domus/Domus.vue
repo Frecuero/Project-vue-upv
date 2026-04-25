@@ -3,27 +3,49 @@
 </script>
 
 <template>
-    <div class="cappa">
-        <h1>Home page</h1>
+    <div class="fondo-home">
 
-        <Button variant="destructive"> Button </Button>
-        <Button class="viridis" variant="tertiarius"> Click me </Button>
+        <h1>
+            <span>Diseño</span> Web y
+            <br>
+            Apps <span>Interactivas</span>
+        </h1>
+
+        <div class="botones">
+            <Button>
+                <RouterLink to="/indecision">Si o no</RouterLink>
+            </Button>
+
+            <Button>
+                <RouterLink to="/batman">Batman</RouterLink>
+            </Button>
+
+            <Button>
+                <RouterLink to="/simpsons">Simpsons</RouterLink>
+            </Button>
+
+            <Button>
+                <a href="https://www.upv.es">UPV</a>
+            </Button>
+        </div>
     </div>
 </template>
 
 <style scoped>
-
-.cappa {
-    margin: 20px;
+.fondo-home {
+  background-color: rgb(21, 25, 52);
+  height: 100vh;
+  color: rgb(24, 182, 246);
 }
 
-h1 {
-    font-size: 24 px;
-    margin-bottom: 12px;
-}
 
-Button {
-    margin-right: 12px;
-}
+.botones > Button {
+  margin-right: 0.5rem;
+  background-color: rgb(24, 182, 246);
+} 
 
+
+.botones > Button:hover {
+  background-color: rgba(24, 182, 246, 0.7);
+} 
 </style>

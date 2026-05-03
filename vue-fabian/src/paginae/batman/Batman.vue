@@ -1,18 +1,111 @@
-<script lang="" setup>
+<script lang="ts" setup>
     import { House } from 'lucide-vue-next'
+    import {
+        NavigationMenu,
+        NavigationMenuItem,
+        NavigationMenuLink,
+        NavigationMenuList,
+        navigationMenuTriggerStyle,
+        } from '@/components/ui/navigation-menu'
+
+    const scrollToSection = (sectionId: string) => {
+        if (sectionId === "#") { 
+            window.scrollTo({top: 0, behavior: 'smooth'})
+        } 
+        const element = document.querySelector<HTMLElement>(sectionId);
+        
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
 </script>
 
 <template>
     <div class="batman">
-        <RouterLink to="/">
-            <House class="icon-home" /> Home
-        </RouterLink>
+        <nav class="extra-nav">
+            <RouterLink to="/">
+                <House class="icon-home" />
+            </RouterLink>
+            <NavigationMenu>
+                <NavigationMenuList>
+
+                    <NavigationMenuItem>
+                        <a href="#" @click.prevent="scrollToSection('#')">
+                            <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+                                Portada
+                            </NavigationMenuLink>
+                        </a>
+                    </NavigationMenuItem>
+
+                    <NavigationMenuItem>
+                        <a href="#" @click.prevent="scrollToSection('#vehiculis')">
+                            <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+                                Vehículos
+                            </NavigationMenuLink>
+                        </a>
+                    </NavigationMenuItem>
+
+                    <NavigationMenuItem>
+                        <a href="#" @click.prevent="scrollToSection('#videre')">
+                            <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+                                Imágenes
+                            </NavigationMenuLink>
+                        </a>
+                    </NavigationMenuItem>
+
+                    <NavigationMenuItem>
+                        <a href="#" @click.prevent="scrollToSection('#contactus')">
+                            <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+                                Contacto
+                            </NavigationMenuLink>
+                        </a>
+                    </NavigationMenuItem>
+
+                </NavigationMenuList>
+            </NavigationMenu>
+        </nav>
 
         <header class="titulus">
             <h1>Batman</h1>
             <div id="titulus-batman" class="titulus-img"></div>
             <p>Él puede tomar la decisión que nadie más puede, la decisión correcta</p>
         </header>
+
+        <section id="vehiculis">
+            <div class="vehiculis-arca">
+                <div class="item unus">
+                    <div class="notitia">
+                    <h2>Avión</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula vulputate elit eget fermentum. Ut laoreet ante lacus. Quisque ut tincidunt metus. Curabitur congue, arcu nec tempus sodales, neque sem ultrices mauris, eu tincidunt nibh nibh eu massa. Aenean rhoncus quis nibh ac facilisis.</p>
+                    <small>Fabricado en 2005</small>
+                    </div>
+                    <img src="/imagines/batman/avion.jpg"/>
+                </div>
+
+                <div class="item duo">
+                    <div class="notitia">
+                    <h2>Moto</h2>
+                    <p>Nulla aliquip cupidatat voluptate veniam nostrud aliquip sit enim officia. Sit eu pariatur officia qui dolor adipisicing cupidatat. Sit consectetur et eu ut esse laboris nulla.</p>
+                    <small>Fabricado en 2006</small>
+                    </div>
+                    <img src="/imagines/batman/moto.jpg"/>
+                </div>
+                
+                <div class="item tribus">
+                    <div class="notitia">
+                    <h2>Coche</h2>
+                    <p>Irure adipisicing est minim eu ad dolor. Eu ea commodo pariatur ut occaecat in cupidatat reprehenderit ut laborum duis. Sunt minim ex fugiat reprehenderit. Lorem consectetur reprehenderit commodo non</p>
+                    <small>Fabricado en 2007</small>
+                    </div>
+                    <img src="/imagines/batman/car.jpg"/>
+                </div>
+            </div>
+
+            <div class="vehiculis-titulus">
+                <h1>Vehículos de Batman</h1>
+            </div>
+        </section>
     </div>
 </template>
 
@@ -32,6 +125,26 @@
     background-color: slateblue ;
     width: 4rem;
     height: 4rem;
+}
+
+.extra-nav {
+  background-color: white;
+  opacity: 0.7;
+  box-shadow: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  width: 11rem;
+  border-radius: 0 0 1rem 0;
+  z-index: 1;
+}
+
+@media (min-width: 640px){
+  .extra-nav {
+    width: 100%;
+    border-radius: 0;
+    opacity: 1;
+    left: 0;
+  }
 }
 
 .titulus-img {
@@ -73,5 +186,47 @@
         display: block;
     }
 }
+
+#vehiculis {
+  max-width: 510px;
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+
+.vehiculis-titulus {
+  height: 5.5rem; /* 88px */
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+.item {
+  padding: 1.5rem 0;
+  height: 500px;
+}
+
+.unus {
+  background-color: rgba(220, 220, 220, 0.2) ; 
+}
+
+.duo {
+  background-color: rgba(220, 220, 220, 0.8);
+}
+
+.tribus {
+  background-color: rgba(220, 220, 220, 0.8);
+}
+ 
+.notitia > small {
+  font-weight: bold;
+  padding: 1rem;
+}
+ 
+.notitia > h2 {
+ font-size: 1.7rem; 
+ font-weight: 600;
+ color: rgba(0, 0, 0, 0.7);
+ padding-bottom: 1rem;
+} 
 
 </style>

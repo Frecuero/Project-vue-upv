@@ -115,16 +115,16 @@
 }
 
 .icon-home {
-    color: slateblue;
-    width: 3rem;
-    height: 3rem;
+  color: slateblue;
+  width: 3rem;
+  height: 3rem;
 }
 
 .icon-home:hover {
-    color: white ;
-    background-color: slateblue ;
-    width: 4rem;
-    height: 4rem;
+  color: white ;
+  background-color: slateblue ;
+  width: 4rem;
+  height: 4rem;
 }
 
 .extra-nav {
@@ -191,6 +191,14 @@
   max-width: 510px;
   margin: 0 auto;
   padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.vehiculis-arca {
+  order: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .vehiculis-titulus {
@@ -198,15 +206,27 @@
   font-size: 2rem;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .item {
   padding: 1.5rem 0;
   height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.item > img {
+    width: 450px;
 }
 
 .unus {
   background-color: rgba(220, 220, 220, 0.2) ; 
+  order: 2;
 }
 
 .duo {
@@ -215,6 +235,14 @@
 
 .tribus {
   background-color: rgba(220, 220, 220, 0.8);
+  order: 2;
+}
+
+.notitia {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
  
 .notitia > small {
@@ -228,5 +256,49 @@
  color: rgba(0, 0, 0, 0.7);
  padding-bottom: 1rem;
 } 
+
+@media (min-width: 640px) {
+  #vehiculis {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: 768px) {
+  #vehiculis {
+    max-width: 900px;
+  }
+
+  .item {
+    flex-direction: row;
+    height: 320px;
+  }
+
+  .notitia {
+    width: 40%;
+  }
+
+  .unus > img {
+    order: -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  #vehiculis {
+    max-width: 1280px;
+  }
+  
+  .item {
+    flex-direction: column;
+    height: 560px;
+  }
+
+  .vehiculis-arca {
+    flex-direction: row;
+  }
+
+  .notitia {
+    width: 90%;
+  }
+}
 
 </style>

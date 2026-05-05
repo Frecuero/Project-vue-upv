@@ -23,16 +23,16 @@
 
 <template>
     <div class="batman">
-        <nav class="extra-nav">
+        <nav class="extra-nav flex flex-col sm:flex-row justify-between px-3">
             <RouterLink to="/">
                 <House class="icon-home" />
             </RouterLink>
             <NavigationMenu>
-                <NavigationMenuList>
+                <NavigationMenuList class="flex flex-col sm:flex-row">
 
                     <NavigationMenuItem>
                         <a href="#" @click.prevent="scrollToSection('#')">
-                            <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+                            <NavigationMenuLink :class="[navigationMenuTriggerStyle(), 'text-md hover:bg-[#6A5ACD] hover:text-white transition-all']">
                                 Portada
                             </NavigationMenuLink>
                         </a>
@@ -40,7 +40,7 @@
 
                     <NavigationMenuItem>
                         <a href="#" @click.prevent="scrollToSection('#vehiculis')">
-                            <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+                            <NavigationMenuLink :class="[navigationMenuTriggerStyle(), 'text-md hover:bg-[#6A5ACD] hover:text-white transition-all']">
                                 Vehículos
                             </NavigationMenuLink>
                         </a>
@@ -48,7 +48,7 @@
 
                     <NavigationMenuItem>
                         <a href="#" @click.prevent="scrollToSection('#videre')">
-                            <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+                            <NavigationMenuLink :class="[navigationMenuTriggerStyle(), 'text-md hover:bg-[#6A5ACD] hover:text-white transition-all']">
                                 Imágenes
                             </NavigationMenuLink>
                         </a>
@@ -56,7 +56,7 @@
 
                     <NavigationMenuItem>
                         <a href="#" @click.prevent="scrollToSection('#contactus')">
-                            <NavigationMenuLink :class="navigationMenuTriggerStyle()">
+                            <NavigationMenuLink :class="[navigationMenuTriggerStyle(), 'text-md hover:bg-[#6A5ACD] hover:text-white transition-all']">
                                 Contacto
                             </NavigationMenuLink>
                         </a>

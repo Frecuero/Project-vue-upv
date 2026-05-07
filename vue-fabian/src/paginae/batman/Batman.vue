@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-    import { House } from 'lucide-vue-next'
+    import { House, Image } from 'lucide-vue-next'
     import {
         NavigationMenu,
         NavigationMenuItem,
@@ -7,6 +7,16 @@
         NavigationMenuList,
         navigationMenuTriggerStyle,
         } from '@/components/ui/navigation-menu'
+
+    import { Card, CardContent } from '@/components/ui/card'
+    import {
+      Carousel,
+      CarouselContent,
+      CarouselItem,
+      CarouselNext,
+      CarouselPrevious,
+    } from '@/components/ui/carousel'
+    import Autoplay from 'embla-carousel-autoplay'
 
     const scrollToSection = (sectionId: string) => {
         if (sectionId === "#") { 
@@ -18,6 +28,9 @@
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
+
+    const photos = ["justice", "arkham", "superman", "varios", "villana", "villano", "grupo", "robin", "anne", "joker", "resplandor", "cat", "gafas", "league", "fondoVerde"];
+
 
 </script>
 
@@ -106,6 +119,35 @@
                 <h1>Vehículos de Batman</h1>
             </div>
         </section>
+
+        <section id="videre" class="bg-gray-900 w-full flex justify-center items-center min-h-[60vh] lg:min-h-[95vh]">
+          <Carousel 
+          class="bg-gray-900 w-full max-w-md md:max-w-2xl lg:max-w-4xl"
+          :opts="{
+            loop: true,
+            dragFree: true,
+          }"
+          :plugins="[Autoplay({ delay: 3000 })]"
+          >
+            <CarouselContent >
+              <CarouselItem v-for="i in photos.length" :key="i">
+                <div class="p-1">
+                  <Card class="bg-gray-900 border-none ">
+                    <CardContent class="bg-gray-900 flex aspect-6/4 items-center justify-center p-6">
+                      <img
+                      :src="`/public/imagines/batman/${photos[i-1]}.jpg`" :alt="`Imagen ${ i } de Batman` "
+                      class="w-full h-full object-cover"
+                      >
+                    </CardContent>
+                  </Card>
+                </div>
+              </CarouselItem>
+            </CarouselContent>
+
+            <CarouselPrevious class="bg-gray-900 text-white hidden md:flex justify-center items-center" />
+            <CarouselNext class="bg-gray-900 text-white hidden md:flex justify-center items-center align-middle " />
+          </Carousel>
+        </section>
     </div>
 </template>
 
@@ -150,7 +192,7 @@
 .titulus-img {
   background-size: 100% 100%;
   background-position: center center;
-  background-image: url("../imagines/batman/batman.jpg");
+  background-image: url("/imagines/batman/batman.jpg");
   min-height: 100vh;
 }
 

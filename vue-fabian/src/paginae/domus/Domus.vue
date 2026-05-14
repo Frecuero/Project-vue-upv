@@ -30,6 +30,10 @@
                 <RouterLink to="/simpsons">Simpsons</RouterLink>
             </Button>
 
+            <Button class="bg-[rgb(24,182,246)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgba(24,182,246,0.7)] transition-all border-2 border-[#97CE4C] hover:text-[#97CE4C]">
+                <RouterLink to="/rickandmorty">Rick & Morty</RouterLink>
+            </Button>
+
             <Button class="bg-[rgb(24,182,246)] mr-2 md:py-5 md:px-6 md:text-lg hover:bg-[rgba(24,182,246,0.7)] transition-all">
                 <a href="https://www.upv.es">UPV</a>
             </Button>
@@ -37,4 +41,7 @@
     </div>
 </template>
 
-<style scoped> </style>
+<style scoped> 
+/* #73ee34, #9afb64, #40741c  */
+
+</style>

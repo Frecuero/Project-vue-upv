@@ -3,6 +3,7 @@ import Domus from "../domus/Domus.vue";
 import Batman from "../batman/Batman.vue";
 import Primus from "../simpsons/Primus.vue";
 import Responsum from "../responsum/Responsum.vue";
+import RickAndMorti from "../rickAndMorty/rickAndMorti.vue";
 
 export const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ export const router = createRouter({
             path: "/indecision",
             name: "indecision",
             component: Responsum
+        },
+        {
+            path: "/rickandmorty",
+            name: "rickandmorty",
+            component: RickAndMorti
         },
         {
             path: "/:pathMatch(.*)*",

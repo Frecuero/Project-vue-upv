@@ -56,13 +56,14 @@ onUnmounted(() => {
 
 <template>
     <main
-      class="flex gap-8 items-center flex-col bg-black min-h-screen text-white text-[0.8rem] relative p-8"
+      ref="scrollContainer"
+      class="flex gap-8 items-center flex-col bg-black h-screen overflow-y-auto text-white text-[0.8rem] relative p-8"
     >
       <header class="flex justify-center w-full h-[20vh]">
         <img :src="logo" />
       </header>
   
-      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 w-full max-w-7xl">
+      <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-6 w-full max-w-7xl">
         <Card
           v-for="character in characters"
           :key="character.id"
@@ -96,6 +97,21 @@ onUnmounted(() => {
           </CardHeader>
         </Card>
       </section>
+
+      <div
+        v-if="loading && characters.length === 0"
+        class="flex flex-col items-center justify-center gap-3 py-10 text-white"
+        >
+        <div class="h-10 w-10 animate-spin rounded-full border-4 border-zinc-700 border-t-green-400"></div>
+        <p class="text-sm text-zinc-400">Cargando personajes...</p>
+     </div>
+     <div
+        v-if="loading && characters.length > 0"
+        class="flex items-center justify-center gap-3 py-6 text-zinc-400"
+        >
+        <div class="h-6 w-6 animate-spin rounded-full border-2 border-zinc-700 border-t-green-400"></div>
+        <span>Cargando más...</span>
+     </div>
     </main>
   </template>
 

@@ -1,15 +1,19 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
 import logo from "../rickAndMorty/logo.png";
-
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
 import { useCharacters } from "../../services/rickAndMortyService";
+import type { HTMLAttributes } from 'vue'
+import { LoaderIcon } from 'lucide-vue-next'
+import { cn } from '@/lib/utils'
+const props = defineProps<{
+  class?: HTMLAttributes['class']
+}>()
 
 const {
   loading,
